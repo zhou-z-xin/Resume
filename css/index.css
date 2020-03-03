@@ -148,7 +148,7 @@ ul{
   font-weight: bold;
 }
 .app-ul .app-li .edu-li-info span:first-child{
-  min-width: 40px;
+  min-width: 50px;
 }
 @media screen and (max-width: 480px){
   #app{
