@@ -1,20 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>周鑫的简历</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <link rel="icon" href="./img/avatar.jpg" type="image/jpg">
+  <link rel="stylesheet" href="//cdn.bootcss.com/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1664889_cjstcrqs7tn.css" />
+  <link rel="stylesheet" href="./css/index.css" />
 </head>
+
 <body>
   <div id="app">
     <div class="header">
-      <div class="header-info"></div>
+      <div class="header-info">
+        <h2 class="info-row font24 row-name">{{name}}<i class="iconfont icon-nan text-blue font21 m-l-10"></i></h2>
+        <div class="info-row">
+          <span class="wd50" v-for="(value, key, index) in header" :key="key">
+            <i class="iconfont m-r-10" :class="icons[key]"></i>{{value}}
+          </span>
+        </div>
+      </div>
       <div class="header-avatar">
         <img src="./img/avatar.jpg" alt="头像">
       </div>
     </div>
+    <ul class="resume-ul">
+      <li class="resume-item" v-for="(item,index) in resumeList" :key="index">
+        <h3 class="title">
+          <i class="iconfont block-blue" :class="icons.block"></i>{{item.title}}
+        </h3>
+        <!-- 个人优势 -->
+        <ul class="advantage-ul" v-if="item.type === 'advantage'">
+          <li class="advantage-li" v-for="(value, index) in item.advantage" :key="index">{{value}}</li>
+        </ul>
+        <!-- 期望职位 -->
+        <ul class="post-ul" v-if="item.type === 'post'">
+          <li class="post-li" v-for="(value, key, index) in item.postInfo" :key="key">
+            <i class="iconfont m-lr-10 split" :class="icons.splitLine" v-if="index != 0"></i>
+            <i class="iconfont m-r-10" :class="icons[key]"></i>{{value}}
+          </li>
+        </ul>
+        <!-- 项目经历 -->
+        <ul class="app-ul" v-if="item.type === 'application'">
+          <li class="app-li" v-for="(info, index) in item.appList" :key="index">
+            <div class="app-title">{{info.appName}}</div>
+            <div class="app-li-info">
+              <span>项目时间：</span>
+              <span>{{info.date}}</span>
+            </div>
+            <div class="app-li-info">
+              <span>所在公司：</span>
+              <span>{{info.company}}</span>
+            </div>
+            <div class="app-li-info">
+              <span>责任描述：</span>
+              <span>{{info.duty}}</span>
+            </div>
+            <div class="app-li-info">
+              <span>项目描述：</span>
+              <span>{{info.appDesc}}</span>
+            </div>
+            <div class="app-li-info">
+              <span>参与角色：</span>
+              <span>{{info.appRole}}</span>
+            </div>
+            <div class="app-li-info">
+              <span>主要技术：</span>
+              <span>{{info.mainTech}}</span>
+            </div>
+          </li>
+        </ul>
+        <!-- 教育经历 -->
+        <ul class="app-ul" v-if="item.type === 'education'">
+          <li class="app-li">
+            <div class="app-title">{{item.education.school}}</div>
+            <div class="app-li-info edu-li-info">
+              <span>专业：</span>
+              <span>{{item.education.profession}}</span>
+            </div>
+            <div class="app-li-info edu-li-info">
+              <span>学历：</span>
+              <span>{{item.education.degree}}</span>
+            </div>
+            <div class="app-li-info edu-li-info">
+              <span>课程：</span>
+              <span>{{item.education.course}}</span>
+            </div>
+            <div class="app-li-info edu-li-info">
+              <span>其他：</span>
+              <span>{{item.education.other}}</span>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
   <script src="./js/index.js"></script>
 </body>
+
 </html>
