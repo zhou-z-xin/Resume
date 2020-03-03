@@ -144,8 +144,11 @@ ul{
   display: flex;
 }
 .app-ul .app-li .app-li-info span:first-child{
-  min-width: 75px;
+  min-width: 80px;
   font-weight: bold;
+}
+.app-ul .app-li .app-li-info span:last-child{
+  flex: 1;
 }
 .app-ul .app-li .edu-li-info span:first-child{
   min-width: 50px;
