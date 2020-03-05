@@ -43,6 +43,14 @@
             <i class="iconfont m-r-10" :class="icons[key]"></i>{{value}}
           </li>
         </ul>
+        <!-- 工作经历 -->
+        <ul class="advantage-ul" v-if="item.type === 'work'">
+          <li class="advantage-li work-li" v-for="(work, index) in item.workList" :key="index">
+            <span v-text="work.date"></span>
+            <span v-text="work.company"></span>
+            <span v-text="work.post"></span>
+          </li>
+        </ul>
         <!-- 项目经历 -->
         <ul class="app-ul" v-if="item.type === 'application'">
           <li class="app-li" v-for="(info, index) in item.appList" :key="index">

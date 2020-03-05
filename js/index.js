@@ -46,6 +46,15 @@ var vm = new Vue({
         position: '长沙'
       }
     }, {
+      type: 'work',
+      title: '工作经历',
+      workList: [
+        {date:'2019.10-2019.11', company:' 广州海鹚网络科技有限公司', post:'中级前端工程师'},
+        {date:'2019.04-2019.09', company:'中惠旅智慧景区管理股份有限公司', post:'前端工程师'},
+        {date:'2018.04-2019.03', company:'湖南都城科技有限公司', post:'前端工程师'},
+        {date:'2017.01-2018.03', company:'广州微康信息科技有限公司', post:'全栈开发工程师'}
+      ]
+    }, {
       type: 'application',
       title: '项目经历',
       appList: [{

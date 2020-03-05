@@ -108,6 +108,12 @@ ul{
   word-break: break-all;
 }
 
+.work-li span{
+  display: inline-block;
+  padding-right: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+}
 .post-ul {
   display: flex;
   align-items: center;
@@ -163,5 +169,18 @@ ul{
   }
   .post-ul>li>.split{
     display: none;
+  }
+  .work-li {
+    padding: 6px 0;
+  }
+  .work-li:first-child{
+    padding-top: 0;
+  }
+  .work-li:nth-child(n+2){
+    border-top: 1px dashed #f2f3f3;
+  }
+  .work-li span{
+    display: block;
+    width: 100%;
   }
 }
