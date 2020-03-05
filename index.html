@@ -16,10 +16,10 @@
   <div id="app">
     <div class="header">
       <div class="header-info">
-        <h2 class="info-row font24 row-name">{{name}}<i class="iconfont icon-nan text-blue font21 m-l-10"></i></h2>
+        <h2 class="info-row font24 row-name"><span v-text="name"></span><i class="iconfont icon-nan text-blue font21 m-l-10"></i></h2>
         <div class="info-row">
           <span class="wd50" v-for="(value, key, index) in header" :key="key">
-            <i class="iconfont m-r-10" :class="icons[key]"></i>{{value}}
+            <i class="iconfont m-r-10" :class="icons[key]"></i><span v-text="value"></span>
           </span>
         </div>
       </div>
@@ -30,17 +30,17 @@
     <ul class="resume-ul">
       <li class="resume-item" v-for="(item,index) in resumeList" :key="index">
         <h3 class="title">
-          <i class="iconfont block-blue" :class="icons.block"></i>{{item.title}}
+          <i class="iconfont block-blue" :class="icons.block"></i><span v-text="item.title"></span>
         </h3>
         <!-- 个人优势 -->
         <ul class="advantage-ul" v-if="item.type === 'advantage'">
-          <li class="advantage-li" v-for="(value, index) in item.advantage" :key="index">{{value}}</li>
+          <li class="advantage-li" v-for="(value, index) in item.advantage" :key="index"><span v-text="value"></span></li>
         </ul>
         <!-- 期望职位 -->
         <ul class="post-ul" v-if="item.type === 'post'">
           <li class="post-li" v-for="(value, key, index) in item.postInfo" :key="key">
             <i class="iconfont m-lr-10 split" :class="icons.splitLine" v-if="index != 0"></i>
-            <i class="iconfont m-r-10" :class="icons[key]"></i>{{value}}
+            <i class="iconfont m-r-10" :class="icons[key]"></i><span v-text="value"></span>
           </li>
         </ul>
         <!-- 工作经历 -->
@@ -54,52 +54,52 @@
         <!-- 项目经历 -->
         <ul class="app-ul" v-if="item.type === 'application'">
           <li class="app-li" v-for="(info, index) in item.appList" :key="index">
-            <div class="app-title">{{info.appName}}</div>
+            <div class="app-title" v-text="info.appName"></div>
             <div class="app-li-info">
               <span>项目时间：</span>
-              <span>{{info.date}}</span>
+              <span v-text="info.date"></span>
             </div>
             <div class="app-li-info">
               <span>所在公司：</span>
-              <span>{{info.company}}</span>
+              <span v-text="info.company"></span>
             </div>
             <div class="app-li-info">
               <span>责任描述：</span>
-              <span>{{info.duty}}</span>
+              <span v-text="info.duty"></span>
             </div>
             <div class="app-li-info">
               <span>项目描述：</span>
-              <span>{{info.appDesc}}</span>
+              <span v-text="info.appDesc"></span>
             </div>
             <div class="app-li-info">
               <span>参与角色：</span>
-              <span>{{info.appRole}}</span>
+              <span v-text="info.appRole"></span>
             </div>
             <div class="app-li-info">
               <span>主要技术：</span>
-              <span>{{info.mainTech}}</span>
+              <span v-text="info.mainTech"></span>
             </div>
           </li>
         </ul>
         <!-- 教育经历 -->
         <ul class="app-ul" v-if="item.type === 'education'">
           <li class="app-li">
-            <div class="app-title">{{item.education.school}}</div>
+            <div class="app-title" v-text="item.education.school"></div>
             <div class="app-li-info edu-li-info">
               <span>专业：</span>
-              <span>{{item.education.profession}}</span>
+              <span v-text="item.education.profession"></span>
             </div>
             <div class="app-li-info edu-li-info">
               <span>学历：</span>
-              <span>{{item.education.degree}}</span>
+              <span v-text="item.education.degree"></span>
             </div>
             <div class="app-li-info edu-li-info">
               <span>课程：</span>
-              <span>{{item.education.course}}</span>
+              <span v-text="item.education.course"></span>
             </div>
             <div class="app-li-info edu-li-info">
               <span>其他：</span>
-              <span>{{item.education.other}}</span>
+              <span v-text="item.education.other"></span>
             </div>
           </li>
         </ul>
